@@ -1,13 +1,15 @@
 //> using scala "2.13.12"
 //> using dep org.chipsalliance::chisel:7.2.0
 //> using plugin org.chipsalliance:::chisel-plugin:7.2.0
-//> using options "-unchecked", "-deprecation", "-language:reflectiveCalls", "-feature", "-Xcheckinit", "-Xfatal-warnings", "-Ywarn-dead-code", "-Ywarn-unused", "-Ymacro-annotations"
+//> using options -unchecked -deprecation -language:reflectiveCalls -feature -Xcheckinit
+//> using options -Xfatal-warnings -Ywarn-dead-code -Ywarn-unused -Ymacro-annotations
 
 
 import _root_.circt.stage.ChiselStage
 
 import chisel3._
-import chisel3.util.BitPat
+import chisel3.util._
+import VADL._
 
 class InstructionDecoder extends Module {
 
@@ -89,95 +91,53 @@ class InstructionDecoder extends Module {
 
   // -- Decode
 
-  /*
-  val is_BNE = Wire(Bool())
-  val is_BGEU = Wire(Bool())
-  val is_BGE = Wire(Bool())
-  val is_BLTU = Wire(Bool())
-  val is_BEQ = Wire(Bool())
-  val is_BLT = Wire(Bool())
-
+  // {BNE, BGEU, BGE, BLTU, BEQ, BLT}
   val sig_152 = Wire(Bits(1.W))
 
-  val is_SH = Wire(Bool())
-  val is_SB = Wire(Bool())
-  val is_SW = Wire(Bool())
-
+  // {SH, SB, SW}
   val sig_147 = Wire(Bits(1.W))
 
-  val is_JAL = Wire(Bool())
-  val is_AUIPC = Wire(Bool())
-  val is_LH = Wire(Bool())
-  val is_JALR = Wire(Bool())
-  val is_SLTI = Wire(Bool())
-  val is_LB = Wire(Bool())
-  val is_ANDI = Wire(Bool())
-  val is_SLTIU = Wire(Bool())
-  val is_XORI = Wire(Bool())
-  val is_LHU = Wire(Bool())
-  val is_LW = Wire(Bool())
-  val is_LBU = Wire(Bool())
-  val is_ADDI = Wire(Bool())
-  val is_ORI = Wire(Bool())
-  val is_SRA = Wire(Bool())
-  val is_SLT = Wire(Bool())
-  val is_XOR = Wire(Bool())
-  val is_SRLI = Wire(Bool())
-  val is_SLL = Wire(Bool())
-  val is_SRL = Wire(Bool())
-  val is_LUI = Wire(Bool())
-  val is_OR = Wire(Bool())
-  val is_SLLI = Wire(Bool())
-  val is_SUB = Wire(Bool())
-  val is_SLTU = Wire(Bool())
-  val is_AND = Wire(Bool())
-  val is_ADD = Wire(Bool())
-  val is_SRAI = Wire(Bool())
-  val sig_214 = Wire(Bits(1.W))
-  val is_ECALL = Wire(Bool())
-  val is_EBREAK = Wire(Bool())*/
-
-  // {BNE, BGEU, BGE, BLTU, BEQ, BLT}
-  sig_152 := or(or(or(or(or(is_BNE, is_BGEU), is_BGE), is_BLTU), is_BEQ), is_BLT)
-  // {SH, SB, SW}
-  sig_147 := or(or(is_SH, is_SB), is_SW)
   // OH ( Cat ( {BNE, BGEU, BGE, BLTU, BEQ, BLT}; {SH, SB, SW}; {JAL}; {AUIPC}; {LH, JALR, SLTI, LB, ANDI, SLTIU, XORI, LHU, LW, LBU, ADDI, ORI} ) )
   // in-width: 5, out-width 3
-  val a0 := OHToUInt(Cat(sig_152, sig_147, is_JAL, is_AUIPC, or(or(or(or(or(or(or(or(or(or(or(is_LH, is_JALR), is_SLTI), is_LB), is_ANDI), is_SLTIU), is_XORI), is_LHU), is_LW), is_LBU), is_ADDI), is_ORI)))
+  val a0 = Wire(Bits(3.W))
 
   // {LB, JAL, SRA, LHU, LBU, ORI, SLT, XOR, SLTI, SRLI, LW, SLL, SRL, JALR, LUI, ANDI, XORI, OR, LH, SLLI, SUB, SLTIU, SLTU, AND, ADD, AUIPC, ADDI, SRAI}
-  val a1 := or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(is_LB, is_JAL), is_SRA), is_LHU), is_LBU), is_ORI), is_SLT), is_XOR), is_SLTI), is_SRLI), is_LW), is_SLL), is_SRL), is_JALR), is_LUI), is_ANDI), is_XORI), is_OR), is_LH), is_SLLI), is_SUB), is_SLTIU), is_SLTU), is_AND), is_ADD), is_AUIPC), is_ADDI), is_SRAI)
+  val a1 = Wire(Bool())
   // {JALR, BNE, BGEU, BGE, JAL, BLTU, BEQ, BLT}
-  val a2 := or(or(or(or(or(or(or(is_JALR, is_BNE), is_BGEU), is_BGE), is_JAL), is_BLTU), is_BEQ), is_BLT)
+  val a2 = Wire(Bool())
+
   // {LH, LB, LHU, LW, LBU}
-  sig_214 := or(or(or(or(is_LH, is_LB), is_LHU), is_LW), is_LBU)
+  val sig_214 = Wire(Bits(1.W))
 
   // OH ( Cat ( {JALR}; {JAL}; {BLTU}; {BLT}; {BGEU}; {BGE}; {BNE}; {BEQ} ) )
   // in-width: 8, out-width: 3
-  val a3 := OHToUInt(Cat(is_JALR, is_JAL, is_BLTU, is_BLT, is_BGEU, is_BGE, is_BNE, is_BEQ))
+  val a3 = Wire(Bits(3.W))
   // OH ( Cat ( {JALR}; {JAL}; {BNE, BGEU, BGE, BLTU, BEQ, BLT} ) )
   // in-width: 3, out-width: 2
-  val a4 := OHToUInt(Cat(is_JALR, is_JAL, sig_152))
+  val a4 = Wire(Bits(2.W))
   // OH ( Cat ( {LH, LHU}; {LW}; {LB, LBU} ) )
   // in-width: 3, out-width: 2
-  val a5 := OHToUInt(Cat(or(is_LH, is_LHU), is_LW, or(is_LB, is_LBU)))
+  val a5 = Wire(Bits(2.W))
   // OH ( Cat ( {SW}; {SH}; {SB} ) )
   // in-width: 3, out-width: 2
-  val a6 := OHToUInt(Cat(is_SW, is_SH, is_SB))
+  val a6 = Wire(Bits(2.W))
   // OH ( Cat ( {SRL, JALR, LUI, JAL, ANDI, SRA, XORI, OR, ORI, SLT, SLLI, XOR, SLTI, SUB, SLTIU, SLTU, SRLI, AND, ADD, AUIPC, ADDI, SLL, SRAI}; {LW}; {LHU}; {LH}; {LBU}; {LB} ) )
   // in-width: 6, out-width: 3
-  val a7 := OHToUInt(Cat(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(is_SRL, is_JALR), is_LUI), is_JAL), is_ANDI), is_SRA), is_XORI), is_OR), is_ORI), is_SLT), is_SLLI), is_XOR), is_SLTI), is_SUB), is_SLTIU), is_SLTU), is_SRLI), is_AND), is_ADD), is_AUIPC), is_ADDI), is_SLL), is_SRAI), is_LW, is_LHU, is_LH, is_LBU, is_LB))
+  val a7 = Wire(Bits(3.W))
   // OH ( Cat ( {JALR, JAL}; {SRAI}; {SRLI}; {SLLI}; {LUI}; {AUIPC}; {SLTIU}; {SLTI}; {XORI}; {ORI}; {ANDI}; {ADDI}; {SRA}; {SRL}; {SLL}; {SLTU}; {SLT}; {XOR}; {OR}; {AND}; {SUB}; {ADD}; {LH, LB, LHU, LW, LBU}; {SH, SB, SW} ) )
   // in-width: 24, out-width: 5
-  val a8 := OHToUInt(Cat(or(is_JALR, is_JAL), is_SRAI, is_SRLI, is_SLLI, is_LUI, is_AUIPC, is_SLTIU, is_SLTI, is_XORI, is_ORI, is_ANDI, is_ADDI, is_SRA, is_SRL, is_SLL, is_SLTU, is_SLT, is_XOR, is_OR, is_AND, is_SUB, is_ADD, sig_214, sig_147))
+  val a8 = Wire(Bits(5.W))
 
   // Fallback -> Invalid
-  val a9 := not(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(is_ADD, is_SUB), is_AND), is_OR), is_XOR), is_SLT), is_SLTU), is_SLL), is_SRL), is_SRA), is_ADDI), is_ANDI), is_ORI), is_XORI), is_SLTI), is_SLTIU), is_AUIPC), is_LUI), is_LB), is_LBU), is_LH), is_LHU), is_LW), is_SB), is_SH), is_SW), is_BEQ), is_BNE), is_BGE), is_BGEU), is_BLT), is_BLTU), is_JAL), is_JALR), is_SLLI), is_SRLI), is_SRAI), is_ECALL), is_EBREAK))
+  val a9 = Wire(Bool())
 
   // {LB, SRA, LHU, LBU, ORI, BLTU, SLT, XOR, BNE, SLTI, SRLI, LW, BEQ, SB, SLL, JALR, SRL, BGEU, BGE, ANDI, XORI, OR, SH, BLT, LH, LH, SLLI, SUB, SLTIU, SLTU, AND, ADD, ADDI, SW, SRAI}
-  val a10 := or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(is_LB, is_SRA), is_LHU), is_LBU), is_ORI), is_BLTU), is_SLT), is_XOR), is_BNE), is_SLTI), is_SRLI), is_LW), is_BEQ), is_SB), is_SLL), is_JALR), is_SRL), is_BGEU), is_BGE), is_ANDI), is_XORI), is_OR), is_SH), is_BLT), is_LH), is_SLLI), is_SUB), is_SLTIU), is_SLTU), is_AND), is_ADD), is_ADDI), is_SW), is_SRAI)
+  val a10 = Wire(Bool())
   // {SRL, BGEU, BGE, SRA, OR, SH, BLTU, BLT, SLT, XOR, BNE, SUB, SLTU, AND, ADD, SLL, SB, BEQ, SW}
-  val a11 := or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(is_SRL, is_BGEU), is_BGE), is_SRA), is_OR), is_SH), is_BLTU), is_BLT), is_SLT), is_XOR), is_BNE), is_SUB), is_SLTU), is_AND), is_ADD), is_SLL), is_SB), is_BEQ), is_SW)
+  val a11 = Wire(Bool())
+
+  val input = Wire(Bits(32.W))
+  input := io.read_readMEM1_result_in.data.asUInt
 
   when(input === BitPat("b0110011????????????????????????")) {
     when(input === BitPat("b000????????????0000000?")) {

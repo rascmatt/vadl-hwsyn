@@ -3,9 +3,10 @@
 // It is recommended to not modify this file, but the sources from which it was generated.
 
 //> using scala "2.13.12"
-//> using dep "org.chipsalliance::chisel:6.6.0"
-//> using plugin "org.chipsalliance:::chisel-plugin:6.6.0"
-//> using options "-unchecked", "-deprecation", "-language:reflectiveCalls", "-feature", "-Xcheckinit", "-Xfatal-warnings", "-Ywarn-dead-code", "-Ywarn-unused", "-Ymacro-annotations"
+//> using dep org.chipsalliance::chisel:7.2.0
+//> using plugin org.chipsalliance:::chisel-plugin:7.2.0
+//> using options -unchecked -deprecation -language:reflectiveCalls -feature -Xcheckinit
+//> using options -Xfatal-warnings -Ywarn-dead-code -Ywarn-unused -Ymacro-annotations
 
 import _root_.circt.stage.ChiselStage
 
@@ -183,7 +184,8 @@ class DECODE extends Module {
 
   when ((io.DECODE_en_in).asBool) {
     // TODO: extract
-    val a0 := OHToUInt(Cat(sig_152, sig_147, is_JAL, is_AUIPC, or(or(or(or(or(or(or(or(or(or(or(is_LH, is_JALR), is_SLTI), is_LB), is_ANDI), is_SLTIU), is_XORI), is_LHU), is_LW), is_LBU), is_ADDI), is_ORI)))
+    val a0 = Wire(Bits(3.W))
+    a0 := OHToUInt(Cat(sig_152, sig_147, is_JAL, is_AUIPC, or(or(or(or(or(or(or(or(or(or(or(is_LH, is_JALR), is_SLTI), is_LB), is_ANDI), is_SLTIU), is_XORI), is_LHU), is_LW), is_LBU), is_ADDI), is_ORI)))
     n204 := MuxLookup[Bits](a0, 0.U)(Seq(0.U -> io.read_readMEM1_result_in.data.asUInt(31, 20).sext(32.W), 1.U -> writeX0_value, 2.U -> lsl(Cat(io.read_readMEM1_result_in.data.asUInt(31, 31), io.read_readMEM1_result_in.data.asUInt(19, 12), io.read_readMEM1_result_in.data.asUInt(20, 20), io.read_readMEM1_result_in.data.asUInt(30, 21)).sext(32.W), "h1".U(1.W)), 3.U -> Cat(io.read_readMEM1_result_in.data.asUInt(31, 25), io.read_readMEM1_result_in.data.asUInt(11, 7)).sext(32.W), 4.U -> lsl(Cat(io.read_readMEM1_result_in.data.asUInt(31, 31), io.read_readMEM1_result_in.data.asUInt(7, 7), io.read_readMEM1_result_in.data.asUInt(30, 25), io.read_readMEM1_result_in.data.asUInt(11, 8)).sext(32.W), "h1".U(1.W))))
   }
 
@@ -204,12 +206,14 @@ class DECODE extends Module {
 
   when ((io.DECODE_en_in).asBool) {
     // TODO: extract
-    val a1 := or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(is_LB, is_JAL), is_SRA), is_LHU), is_LBU), is_ORI), is_SLT), is_XOR), is_SLTI), is_SRLI), is_LW), is_SLL), is_SRL), is_JALR), is_LUI), is_ANDI), is_XORI), is_OR), is_LH), is_SLLI), is_SUB), is_SLTIU), is_SLTU), is_AND), is_ADD), is_AUIPC), is_ADDI), is_SRAI)
+    val a1 = Wire(Bool())
+    a1 := or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(is_LB, is_JAL), is_SRA), is_LHU), is_LBU), is_ORI), is_SLT), is_XOR), is_SLTI), is_SRLI), is_LW), is_SLL), is_SRL), is_JALR), is_LUI), is_ANDI), is_XORI), is_OR), is_LH), is_SLLI), is_SUB), is_SLTIU), is_SLTU), is_AND), is_ADD), is_AUIPC), is_ADDI), is_SRAI)
     writeX0_enable := and(neq(io.read_readMEM1_result_in.data.asUInt(11, 7), "h0".U(5.W)), a1)
   }
   when ((io.DECODE_en_in).asBool) {
     // TODO: Extract
-    val a2 := or(or(or(or(or(or(or(is_JALR, is_BNE), is_BGEU), is_BGE), is_JAL), is_BLTU), is_BEQ), is_BLT)
+    val a2 = Wire(Bool())
+    a2 := or(or(or(or(or(or(or(is_JALR, is_BNE), is_BGEU), is_BGE), is_JAL), is_BLTU), is_BEQ), is_BLT)
     is_JALRBNEBGEUBGEJALBLTUBEQBLT := a2
   }
   when ((io.DECODE_en_in).asBool) {
@@ -223,32 +227,38 @@ class DECODE extends Module {
   }
   when ((io.DECODE_en_in).asBool) {
     // TODO: Extract
-    val a3 := OHToUInt(Cat(is_JALR, is_JAL, is_BLTU, is_BLT, is_BGEU, is_BGE, is_BNE, is_BEQ))
+    val a3 = Wire(Bits(3.W))
+    a3 := OHToUInt(Cat(is_JALR, is_JAL, is_BLTU, is_BLT, is_BGEU, is_BGE, is_BNE, is_BEQ))
     bin_is_BEQ_is_BNE_is_BGE_is_BG := a3
   }
   when ((io.DECODE_en_in).asBool) {
     // TODO: Extract
-    val a4 := OHToUInt(Cat(is_JALR, is_JAL, sig_152))
+    val a4 = Wire(Bits(2.W))
+    a4 := OHToUInt(Cat(is_JALR, is_JAL, sig_152))
     sel_writePC0_value := a4
   }
   when ((io.DECODE_en_in).asBool) {
     // TODO: Extract
-    val a5 := OHToUInt(Cat(or(is_LH, is_LHU), is_LW, or(is_LB, is_LBU)))
+    val a5 = Wire(Bits(2.W))
+    a5 := OHToUInt(Cat(or(is_LH, is_LHU), is_LW, or(is_LB, is_LBU)))
     sel_readMEM0_words := a5
   }
   when ((io.DECODE_en_in).asBool) {
     // TODO: Extract
-    val a6 := OHToUInt(Cat(is_SW, is_SH, is_SB))
+    val a6 = Wire(Bits(2.W))
+    a6 := OHToUInt(Cat(is_SW, is_SH, is_SB))
     sel_writeMEM0_words := a6
   }
   when ((io.DECODE_en_in).asBool) {
     // TODO: Extract
-    val a7 := OHToUInt(Cat(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(is_SRL, is_JALR), is_LUI), is_JAL), is_ANDI), is_SRA), is_XORI), is_OR), is_ORI), is_SLT), is_SLLI), is_XOR), is_SLTI), is_SUB), is_SLTIU), is_SLTU), is_SRLI), is_AND), is_ADD), is_AUIPC), is_ADDI), is_SLL), is_SRAI), is_LW, is_LHU, is_LH, is_LBU, is_LB))
+    val a7 = Wire(Bits(3.W))
+    a7 := OHToUInt(Cat(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(is_SRL, is_JALR), is_LUI), is_JAL), is_ANDI), is_SRA), is_XORI), is_OR), is_ORI), is_SLT), is_SLLI), is_XOR), is_SLTI), is_SUB), is_SLTIU), is_SLTU), is_SRLI), is_AND), is_ADD), is_AUIPC), is_ADDI), is_SLL), is_SRAI), is_LW, is_LHU, is_LH, is_LBU, is_LB))
     sel_writeX0_value := a7
   }
   when ((io.DECODE_en_in).asBool) {
     // TDOO: Extract
-    val a8 := OHToUInt(Cat(or(is_JALR, is_JAL), is_SRAI, is_SRLI, is_SLLI, is_LUI, is_AUIPC, is_SLTIU, is_SLTI, is_XORI, is_ORI, is_ANDI, is_ADDI, is_SRA, is_SRL, is_SLL, is_SLTU, is_SLT, is_XOR, is_OR, is_AND, is_SUB, is_ADD, sig_214, sig_147))
+    val a8 = Wire(Bits(5.W))
+    a8 := OHToUInt(Cat(or(is_JALR, is_JAL), is_SRAI, is_SRLI, is_SLLI, is_LUI, is_AUIPC, is_SLTIU, is_SLTI, is_XORI, is_ORI, is_ANDI, is_ADDI, is_SRA, is_SRL, is_SLL, is_SLTU, is_SLT, is_XOR, is_OR, is_AND, is_SUB, is_ADD, sig_214, sig_147))
     sel_readMEM0_addr := a8
   }
 
@@ -257,15 +267,19 @@ class DECODE extends Module {
 
   when ((io.DECODE_en_in).asBool) {
     // TODO: Extract to fallback
-    val a9 := not(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(is_ADD, is_SUB), is_AND), is_OR), is_XOR), is_SLT), is_SLTU), is_SLL), is_SRL), is_SRA), is_ADDI), is_ANDI), is_ORI), is_XORI), is_SLTI), is_SLTIU), is_AUIPC), is_LUI), is_LB), is_LBU), is_LH), is_LHU), is_LW), is_SB), is_SH), is_SW), is_BEQ), is_BNE), is_BGE), is_BGEU), is_BLT), is_BLTU), is_JAL), is_JALR), is_SLLI), is_SRLI), is_SRAI), is_ECALL), is_EBREAK))
+    val a9 = Wire(Bool())
+    a9 := not(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(is_ADD, is_SUB), is_AND), is_OR), is_XOR), is_SLT), is_SLTU), is_SLL), is_SRL), is_SRA), is_ADDI), is_ANDI), is_ORI), is_XORI), is_SLTI), is_SLTIU), is_AUIPC), is_LUI), is_LB), is_LBU), is_LH), is_LHU), is_LW), is_SB), is_SH), is_SW), is_BEQ), is_BNE), is_BGE), is_BGEU), is_BLT), is_BLTU), is_JAL), is_JALR), is_SLLI), is_SRLI), is_SRAI), is_ECALL), is_EBREAK))
     not_is_not_none := a9
   }
 
   // TODO: Extract
-  val a10 := or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(is_LB, is_SRA), is_LHU), is_LBU), is_ORI), is_BLTU), is_SLT), is_XOR), is_BNE), is_SLTI), is_SRLI), is_LW), is_BEQ), is_SB), is_SLL), is_JALR), is_SRL), is_BGEU), is_BGE), is_ANDI), is_XORI), is_OR), is_SH), is_BLT), is_LH), is_SLLI), is_SUB), is_SLTIU), is_SLTU), is_AND), is_ADD), is_ADDI), is_SW), is_SRAI)
+  val a10 = Wire(Bool())
+  a10 := or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(is_LB, is_SRA), is_LHU), is_LBU), is_ORI), is_BLTU), is_SLT), is_XOR), is_BNE), is_SLTI), is_SRLI), is_LW), is_BEQ), is_SB), is_SLL), is_JALR), is_SRL), is_BGEU), is_BGE), is_ANDI), is_XORI), is_OR), is_SH), is_BLT), is_LH), is_SLLI), is_SUB), is_SLTIU), is_SLTU), is_AND), is_ADD), is_ADDI), is_SW), is_SRAI)
+  val rs1_neq_0_and_is_not_AUIPCLUIJ = Wire(Bits(1.W))
   rs1_neq_0_and_is_not_AUIPCLUIJ := and(n_162, a10)
   io.readX0_result_in.enable := and(io.read_DECODE_full_in.data.asUInt, and(rs1_neq_0_and_is_not_AUIPCLUIJ, not(io.fwd_X0_en_in)))
   io.readX0_result_in.address := io.read_readMEM1_result_in.data.asUInt(19, 15)
+  val sig_122 = Wire(Bits(32.W))
   sig_122 := Mux((io.fwd_X0_en_in).asBool, io.fwd_X0_val_in, io.readX0_result_in.data.asUInt)
 
   when ((io.DECODE_en_in).asBool) {
@@ -273,10 +287,13 @@ class DECODE extends Module {
   }
 
   // TODO: Extract
-  val a11 := or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(is_SRL, is_BGEU), is_BGE), is_SRA), is_OR), is_SH), is_BLTU), is_BLT), is_SLT), is_XOR), is_BNE), is_SUB), is_SLTU), is_AND), is_ADD), is_SLL), is_SB), is_BEQ), is_SW)
+  val a11 = Wire(Bool())
+  a11 := or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(or(is_SRL, is_BGEU), is_BGE), is_SRA), is_OR), is_SH), is_BLTU), is_BLT), is_SLT), is_XOR), is_BNE), is_SUB), is_SLTU), is_AND), is_ADD), is_SLL), is_SB), is_BEQ), is_SW)
+  val rs2_neq_0_and_is_SRLBGEUBGESRA = Wire(Bits(1.W))
   rs2_neq_0_and_is_SRLBGEUBGESRA := and(n_166, a11)
   io.readX1_result_in.enable := and(io.read_DECODE_full_in.data.asUInt, and(rs2_neq_0_and_is_SRLBGEUBGESRA, not(io.fwd_X1_en_in)))
   io.readX1_result_in.address := io.read_readMEM1_result_in.data.asUInt(24, 20)
+  val sig_128 = Wire(Bits(32.W))
   sig_128 := Mux((io.fwd_X1_en_in).asBool, io.fwd_X1_val_in, io.readX1_result_in.data.asUInt)
   when ((io.DECODE_en_in).asBool) {
     readX1_result := sig_128
