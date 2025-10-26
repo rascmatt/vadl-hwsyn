@@ -305,7 +305,10 @@ object Main extends App {
   println(
     ChiselStage.emitSystemVerilog(
       gen = new DECODE,
-      firtoolOpts = Array("-disable-all-randomization", "-strip-debug-info")
+      firtoolOpts = Array(
+        "-disable-all-randomization",
+        "--lowering-options=disallowLocalVariables",
+        "-strip-debug-info")
     )
   )
 }
