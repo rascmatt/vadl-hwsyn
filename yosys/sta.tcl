@@ -1,5 +1,5 @@
 read_liberty /data/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_verilog /data/build/decode_vdt_manual.v
+read_verilog /data/build/decode_vdt_dist_manual.v
 link_design InstructionDecoder
 
 # Timings
