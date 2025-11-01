@@ -1,5 +1,5 @@
 # read design
-read_verilog -sv rtl/decode_vdt_dist_manual.sv
+read_verilog -sv rtl/decode_table_manual.sv
 
 # elaborate design hierarchy
 hierarchy -check -top InstructionDecoder
@@ -23,4 +23,4 @@ stat -liberty lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 clean
 
 # write synthesized design
-write_verilog build/synth.v
+write_verilog build/decode_table_manual.v

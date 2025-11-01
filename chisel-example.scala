@@ -6,24 +6,25 @@
 //> using options -Xfatal-warnings -Ywarn-dead-code -Ywarn-unused -Ymacro-annotations
 
 import chisel3._
+import chisel3.util.BitPat
+import chisel3.util.experimental.decode.{TruthTable, decoder}
 // _root_ disambiguates from package chisel3.util.circt if user imports chisel3.util._
 import _root_.circt.stage.ChiselStage
 
 class Foo extends Module {
-  val a, b, c = IO(Input(Bool()))
-  val d, e, f = IO(Input(Bool()))
-  val foo, bar = IO(Input(UInt(8.W)))
-  val out = IO(Output(UInt(8.W)))
+  val input = IO(Input(UInt(4.W)))
+  val output = IO(Output(UInt(2.W)))
+  val dec_output = Wire(UInt(4.W))
 
-  val myReg = RegInit(0.U(8.W))
-  out := myReg
+  val table = TruthTable(
+    Map(
+      BitPat("b0010") -> BitPat("b0001"),
+      BitPat("b0100") -> BitPat("b0010")
+    ), BitPat("b0000"))
 
-  when(a && b && c) {
-    myReg := 257.U
-  }
-  when(d && e && f) {
-    myReg := bar
-  }
+  dec_output := decoder(input, table)
+
+  output := dec_output(1,0)
 
 }
 

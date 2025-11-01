@@ -1,0 +1,31 @@
+Startpoint: io_read_readMEM1_result_in_data[28] (input port clocked by core_clk)
+Endpoint: _1640_ (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   1.00    1.00 v input external delay
+   0.00    1.00 v io_read_readMEM1_result_in_data[28] (in)
+   0.57    1.57 v _0921_/X (sky130_fd_sc_hd__or4_1)
+   0.83    2.40 ^ _0927_/Y (sky130_fd_sc_hd__a2111oi_0)
+   0.27    2.67 v _0929_/Y (sky130_fd_sc_hd__nor2_1)
+   0.24    2.91 v _0941_/X (sky130_fd_sc_hd__and3b_1)
+   0.50    3.41 v _0945_/X (sky130_fd_sc_hd__or4b_1)
+   0.13    3.54 ^ _0946_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.00    3.54 ^ _1640_/D (sky130_fd_sc_hd__dfxtp_1)
+           3.54   data arrival time
+
+   5.00    5.00   clock core_clk (rise edge)
+   0.00    5.00   clock network delay (ideal)
+   0.00    5.00   clock reconvergence pessimism
+           5.00 ^ _1640_/CLK (sky130_fd_sc_hd__dfxtp_1)
+  -0.07    4.93   library setup time
+           4.93   data required time
+---------------------------------------------------------
+           4.93   data required time
+          -3.54   data arrival time
+---------------------------------------------------------
+           1.39   slack (MET)
