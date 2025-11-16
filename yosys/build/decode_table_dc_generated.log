@@ -29,7 +29,7 @@ Removed 0 unused modules.
 Cleaned up 0 empty switches.
 
 3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
-Marked 1 switch rules as full_case in process $proc$rtl/decode_table_dc_generated.sv:658$62 in module DECODE.
+Marked 1 switch rules as full_case in process $proc$rtl/decode_table_dc_generated.sv:647$71 in module DECODE.
 Removed a total of 0 dead cases.
 
 3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
@@ -45,7 +45,7 @@ Converted 0 switches.
 <suppressed ~2 debug messages>
 
 3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
+Creating decoders for process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
      1/21: $0\writePC1_value[31:0]
      2/21: $0\readMEM1_addr[31:0]
      3/21: $0\readX1_result[31:0]
@@ -56,12 +56,12 @@ Creating decoders for process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:65
      8/21: $0\sel_writeMEM0_words[1:0]
      9/21: $0\bin_readMEM0_words[1:0]
     10/21: $0\bin_writePC0_value[1:0]
-    11/21: $0\n290[2:0]
+    11/21: $0\n248[2:0]
     12/21: $0\is_L[0:0]
     13/21: $0\is_S[0:0]
-    14/21: $0\is_BGEJALRBLTBLTUBEQBNEBGEUJAL[0:0]
+    14/21: $0\is_JALRBEQJALBLTUBGEUBGEBLTBNE[0:0]
     15/21: $0\writeX0_enable[0:0]
-    16/21: $0\n246[31:0]
+    16/21: $0\n204[31:0]
     17/21: $0\rs2_neq_0[0:0]
     18/21: $0\rs1_neq_0[0:0]
     19/21: $0\readMEM0_addr[31:0]
@@ -71,54 +71,54 @@ Creating decoders for process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:65
 3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
 
 3.9. Executing PROC_DFF pass (convert process syncs to FFs).
-Creating register for signal `\DECODE.\rd' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$236' with positive edge clock.
-Creating register for signal `\DECODE.\rs2' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$237' with positive edge clock.
-Creating register for signal `\DECODE.\readMEM0_addr' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$238' with positive edge clock.
-Creating register for signal `\DECODE.\rs1_neq_0' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$239' with positive edge clock.
-Creating register for signal `\DECODE.\rs2_neq_0' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$240' with positive edge clock.
-Creating register for signal `\DECODE.\n246' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$241' with positive edge clock.
-Creating register for signal `\DECODE.\writeX0_enable' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$242' with positive edge clock.
-Creating register for signal `\DECODE.\is_BGEJALRBLTBLTUBEQBNEBGEUJAL' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$243' with positive edge clock.
-Creating register for signal `\DECODE.\is_S' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$244' with positive edge clock.
-Creating register for signal `\DECODE.\is_L' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$245' with positive edge clock.
-Creating register for signal `\DECODE.\n290' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$246' with positive edge clock.
-Creating register for signal `\DECODE.\bin_writePC0_value' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$247' with positive edge clock.
-Creating register for signal `\DECODE.\bin_readMEM0_words' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$248' with positive edge clock.
-Creating register for signal `\DECODE.\sel_writeMEM0_words' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$249' with positive edge clock.
-Creating register for signal `\DECODE.\bin_writeX0_value' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$250' with positive edge clock.
-Creating register for signal `\DECODE.\sel_readMEM0_addr' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$251' with positive edge clock.
-Creating register for signal `\DECODE.\invalid_insn' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$252' with positive edge clock.
-Creating register for signal `\DECODE.\readX0_result' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$253' with positive edge clock.
-Creating register for signal `\DECODE.\readX1_result' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$254' with positive edge clock.
-Creating register for signal `\DECODE.\readMEM1_addr' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$255' with positive edge clock.
-Creating register for signal `\DECODE.\writePC1_value' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-  created $dff cell `$procdff$256' with positive edge clock.
+Creating register for signal `\DECODE.\rd' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$279' with positive edge clock.
+Creating register for signal `\DECODE.\rs2' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$280' with positive edge clock.
+Creating register for signal `\DECODE.\readMEM0_addr' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$281' with positive edge clock.
+Creating register for signal `\DECODE.\rs1_neq_0' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$282' with positive edge clock.
+Creating register for signal `\DECODE.\rs2_neq_0' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$283' with positive edge clock.
+Creating register for signal `\DECODE.\n204' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$284' with positive edge clock.
+Creating register for signal `\DECODE.\writeX0_enable' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$285' with positive edge clock.
+Creating register for signal `\DECODE.\is_JALRBEQJALBLTUBGEUBGEBLTBNE' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$286' with positive edge clock.
+Creating register for signal `\DECODE.\is_S' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$287' with positive edge clock.
+Creating register for signal `\DECODE.\is_L' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$288' with positive edge clock.
+Creating register for signal `\DECODE.\n248' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$289' with positive edge clock.
+Creating register for signal `\DECODE.\bin_writePC0_value' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$290' with positive edge clock.
+Creating register for signal `\DECODE.\bin_readMEM0_words' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$291' with positive edge clock.
+Creating register for signal `\DECODE.\sel_writeMEM0_words' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$292' with positive edge clock.
+Creating register for signal `\DECODE.\bin_writeX0_value' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$293' with positive edge clock.
+Creating register for signal `\DECODE.\sel_readMEM0_addr' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$294' with positive edge clock.
+Creating register for signal `\DECODE.\invalid_insn' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$295' with positive edge clock.
+Creating register for signal `\DECODE.\readX0_result' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$296' with positive edge clock.
+Creating register for signal `\DECODE.\readX1_result' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$297' with positive edge clock.
+Creating register for signal `\DECODE.\readMEM1_addr' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$298' with positive edge clock.
+Creating register for signal `\DECODE.\writePC1_value' using process `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+  created $dff cell `$procdff$299' with positive edge clock.
 
 3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
 
 3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Found and cleaned up 2 empty switches in `\DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
-Removing empty process `DECODE.$proc$rtl/decode_table_dc_generated.sv:658$62'.
+Found and cleaned up 2 empty switches in `\DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
+Removing empty process `DECODE.$proc$rtl/decode_table_dc_generated.sv:647$71'.
 Cleaned up 2 empty switches.
 
 3.12. Executing OPT_EXPR pass (perform const folding).
@@ -133,8 +133,8 @@ Optimizing module DECODE.
 
 4.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\DECODE'.
-<suppressed ~93 debug messages>
-Removed a total of 31 cells.
+<suppressed ~246 debug messages>
+Removed a total of 82 cells.
 
 4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \DECODE..
@@ -153,64 +153,64 @@ Finding identical cells in module `\DECODE'.
 Removed a total of 0 cells.
 
 4.6. Executing OPT_DFF pass (perform DFF optimizations).
-Adding SRST signal on $procdff$236 ($dff) from module DECODE (D = $procmux$231_Y, Q = \rd, rval = 5'00000).
-Adding EN signal on $auto$ff.cc:266:slice$257 ($sdff) from module DECODE (D = \io_read_readMEM1_result_in_data [11:7], Q = \rd).
-Adding SRST signal on $procdff$237 ($dff) from module DECODE (D = $procmux$226_Y, Q = \rs2, rval = 5'00000).
-Adding EN signal on $auto$ff.cc:266:slice$259 ($sdff) from module DECODE (D = \io_read_readMEM1_result_in_data [24:20], Q = \rs2).
-Adding SRST signal on $procdff$238 ($dff) from module DECODE (D = $procmux$221_Y, Q = \readMEM0_addr, rval = 0).
-Adding EN signal on $auto$ff.cc:266:slice$261 ($sdff) from module DECODE (D = { \io_read_readMEM1_result_in_data [31:12] 12'000000000000 }, Q = \readMEM0_addr).
-Adding SRST signal on $procdff$239 ($dff) from module DECODE (D = $procmux$216_Y, Q = \rs1_neq_0, rval = 1'0).
-Adding EN signal on $auto$ff.cc:266:slice$263 ($sdff) from module DECODE (D = $reduce_or$rtl/decode_table_dc_generated.sv:686$63_Y, Q = \rs1_neq_0).
-Adding SRST signal on $procdff$240 ($dff) from module DECODE (D = $procmux$211_Y, Q = \rs2_neq_0, rval = 1'0).
-Adding EN signal on $auto$ff.cc:266:slice$265 ($sdff) from module DECODE (D = $reduce_or$rtl/decode_table_dc_generated.sv:687$64_Y, Q = \rs2_neq_0).
-Adding SRST signal on $procdff$241 ($dff) from module DECODE (D = $procmux$206_Y, Q = \n246, rval = 0).
-Adding EN signal on $auto$ff.cc:266:slice$267 ($sdff) from module DECODE (D = $shiftx$rtl/decode_table_dc_generated.sv:689$77_Y, Q = \n246).
-Adding SRST signal on $procdff$242 ($dff) from module DECODE (D = $procmux$201_Y, Q = \writeX0_enable, rval = 1'0).
-Adding EN signal on $auto$ff.cc:266:slice$269 ($sdff) from module DECODE (D = $and$rtl/decode_table_dc_generated.sv:712$79_Y, Q = \writeX0_enable).
-Adding SRST signal on $procdff$243 ($dff) from module DECODE (D = $procmux$196_Y, Q = \is_BGEJALRBLTBLTUBEQBNEBGEUJAL, rval = 1'0).
-Adding EN signal on $auto$ff.cc:266:slice$271 ($sdff) from module DECODE (D = \io_read_readMEM1_result_in_data [24], Q = \is_BGEJALRBLTBLTUBEQBNEBGEUJAL).
-Adding SRST signal on $procdff$244 ($dff) from module DECODE (D = $procmux$191_Y, Q = \is_S, rval = 1'0).
-Adding EN signal on $auto$ff.cc:266:slice$273 ($sdff) from module DECODE (D = $reduce_or$rtl/decode_table_dc_generated.sv:714$82_Y, Q = \is_S).
-Adding SRST signal on $procdff$245 ($dff) from module DECODE (D = $procmux$186_Y, Q = \is_L, rval = 1'0).
-Adding EN signal on $auto$ff.cc:266:slice$275 ($sdff) from module DECODE (D = $reduce_or$rtl/decode_table_dc_generated.sv:715$84_Y, Q = \is_L).
-Adding SRST signal on $procdff$246 ($dff) from module DECODE (D = $procmux$181_Y, Q = \n290, rval = 3'000).
-Adding EN signal on $auto$ff.cc:266:slice$277 ($sdff) from module DECODE (D = { $reduce_or$rtl/decode_table_dc_generated.sv:717$96_Y $reduce_or$rtl/decode_table_dc_generated.sv:728$92_Y $reduce_or$rtl/decode_table_dc_generated.sv:739$88_Y }, Q = \n290).
-Adding SRST signal on $procdff$247 ($dff) from module DECODE (D = $procmux$176_Y, Q = \bin_writePC0_value, rval = 2'00).
-Adding EN signal on $auto$ff.cc:266:slice$279 ($sdff) from module DECODE (D = { $reduce_and$rtl/decode_table_dc_generated.sv:760$98_Y $reduce_and$rtl/decode_table_dc_generated.sv:760$97_Y }, Q = \bin_writePC0_value).
-Adding SRST signal on $procdff$256 ($dff) from module DECODE (D = $procmux$131_Y, Q = \writePC1_value, rval = 0).
-Adding EN signal on $auto$ff.cc:266:slice$281 ($sdff) from module DECODE (D = \io_read_writePC1_value_in_data, Q = \writePC1_value).
-Adding SRST signal on $procdff$248 ($dff) from module DECODE (D = $procmux$171_Y, Q = \bin_readMEM0_words, rval = 2'00).
-Adding EN signal on $auto$ff.cc:266:slice$283 ($sdff) from module DECODE (D = { $reduce_and$rtl/decode_table_dc_generated.sv:762$100_Y $reduce_and$rtl/decode_table_dc_generated.sv:763$99_Y }, Q = \bin_readMEM0_words).
-Adding SRST signal on $procdff$249 ($dff) from module DECODE (D = $procmux$166_Y, Q = \sel_writeMEM0_words, rval = 2'00).
-Adding EN signal on $auto$ff.cc:266:slice$285 ($sdff) from module DECODE (D = { $reduce_and$rtl/decode_table_dc_generated.sv:773$102_Y $reduce_and$rtl/decode_table_dc_generated.sv:782$101_Y }, Q = \sel_writeMEM0_words).
-Adding SRST signal on $procdff$250 ($dff) from module DECODE (D = $procmux$161_Y, Q = \bin_writeX0_value, rval = 3'000).
-Adding EN signal on $auto$ff.cc:266:slice$287 ($sdff) from module DECODE (D = { $reduce_or$rtl/decode_table_dc_generated.sv:792$110_Y $reduce_and$rtl/decode_table_dc_generated.sv:795$107_Y $reduce_or$rtl/decode_table_dc_generated.sv:796$106_Y }, Q = \bin_writeX0_value).
-Adding SRST signal on $procdff$251 ($dff) from module DECODE (D = $procmux$156_Y, Q = \sel_readMEM0_addr, rval = 5'00000).
-Adding EN signal on $auto$ff.cc:266:slice$289 ($sdff) from module DECODE (D = { $reduce_or$rtl/decode_table_dc_generated.sv:263$61_Y $reduce_or$rtl/decode_table_dc_generated.sv:290$54_Y $reduce_or$rtl/decode_table_dc_generated.sv:354$46_Y $reduce_or$rtl/decode_table_dc_generated.sv:439$35_Y $reduce_or$rtl/decode_table_dc_generated.sv:530$25_Y }, Q = \sel_readMEM0_addr).
-Adding SRST signal on $procdff$252 ($dff) from module DECODE (D = $procmux$151_Y, Q = \invalid_insn, rval = 1'0).
-Adding EN signal on $auto$ff.cc:266:slice$291 ($sdff) from module DECODE (D = $eq$rtl/decode_table_dc_generated.sv:809$124_Y, Q = \invalid_insn).
-Adding SRST signal on $procdff$253 ($dff) from module DECODE (D = $procmux$146_Y, Q = \readX0_result, rval = 0).
-Adding EN signal on $auto$ff.cc:266:slice$293 ($sdff) from module DECODE (D = $ternary$rtl/decode_table_dc_generated.sv:102$6_Y, Q = \readX0_result).
-Adding SRST signal on $procdff$254 ($dff) from module DECODE (D = $procmux$141_Y, Q = \readX1_result, rval = 0).
-Adding EN signal on $auto$ff.cc:266:slice$295 ($sdff) from module DECODE (D = $ternary$rtl/decode_table_dc_generated.sv:109$12_Y, Q = \readX1_result).
-Adding SRST signal on $procdff$255 ($dff) from module DECODE (D = $procmux$136_Y, Q = \readMEM1_addr, rval = 0).
-Adding EN signal on $auto$ff.cc:266:slice$297 ($sdff) from module DECODE (D = \io_read_readMEM1_addr_in_data, Q = \readMEM1_addr).
-Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$262 ($sdffe) from module DECODE.
-Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$262 ($sdffe) from module DECODE.
-Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$262 ($sdffe) from module DECODE.
-Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$262 ($sdffe) from module DECODE.
-Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$262 ($sdffe) from module DECODE.
-Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$262 ($sdffe) from module DECODE.
-Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$262 ($sdffe) from module DECODE.
-Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$262 ($sdffe) from module DECODE.
-Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$262 ($sdffe) from module DECODE.
-Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$262 ($sdffe) from module DECODE.
-Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$262 ($sdffe) from module DECODE.
-Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$262 ($sdffe) from module DECODE.
+Adding SRST signal on $procdff$299 ($dff) from module DECODE (D = $procmux$174_Y, Q = \writePC1_value, rval = 0).
+Adding EN signal on $auto$ff.cc:266:slice$300 ($sdff) from module DECODE (D = \io_read_writePC1_value_in_data, Q = \writePC1_value).
+Adding SRST signal on $procdff$279 ($dff) from module DECODE (D = $procmux$274_Y, Q = \rd, rval = 5'00000).
+Adding EN signal on $auto$ff.cc:266:slice$302 ($sdff) from module DECODE (D = \io_read_readMEM1_result_in_data [11:7], Q = \rd).
+Adding SRST signal on $procdff$280 ($dff) from module DECODE (D = $procmux$269_Y, Q = \rs2, rval = 5'00000).
+Adding EN signal on $auto$ff.cc:266:slice$304 ($sdff) from module DECODE (D = \io_read_readMEM1_result_in_data [24:20], Q = \rs2).
+Adding SRST signal on $procdff$281 ($dff) from module DECODE (D = $procmux$264_Y, Q = \readMEM0_addr, rval = 0).
+Adding EN signal on $auto$ff.cc:266:slice$306 ($sdff) from module DECODE (D = { \io_read_readMEM1_result_in_data [31:12] 12'000000000000 }, Q = \readMEM0_addr).
+Adding SRST signal on $procdff$282 ($dff) from module DECODE (D = $procmux$259_Y, Q = \rs1_neq_0, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$308 ($sdff) from module DECODE (D = $reduce_or$rtl/decode_table_dc_generated.sv:675$72_Y, Q = \rs1_neq_0).
+Adding SRST signal on $procdff$283 ($dff) from module DECODE (D = $procmux$254_Y, Q = \rs2_neq_0, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$310 ($sdff) from module DECODE (D = $reduce_or$rtl/decode_table_dc_generated.sv:676$73_Y, Q = \rs2_neq_0).
+Adding SRST signal on $procdff$284 ($dff) from module DECODE (D = $procmux$249_Y, Q = \n204, rval = 0).
+Adding EN signal on $auto$ff.cc:266:slice$312 ($sdff) from module DECODE (D = $shiftx$rtl/decode_table_dc_generated.sv:678$86_Y, Q = \n204).
+Adding SRST signal on $procdff$285 ($dff) from module DECODE (D = $procmux$244_Y, Q = \writeX0_enable, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$314 ($sdff) from module DECODE (D = $and$rtl/decode_table_dc_generated.sv:692$100_Y, Q = \writeX0_enable).
+Adding SRST signal on $procdff$286 ($dff) from module DECODE (D = $procmux$239_Y, Q = \is_JALRBEQJALBLTUBGEUBGEBLTBNE, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$316 ($sdff) from module DECODE (D = $reduce_or$rtl/decode_table_dc_generated.sv:712$105_Y, Q = \is_JALRBEQJALBLTUBGEUBGEBLTBNE).
+Adding SRST signal on $procdff$287 ($dff) from module DECODE (D = $procmux$234_Y, Q = \is_S, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$318 ($sdff) from module DECODE (D = $reduce_or$rtl/decode_table_dc_generated.sv:716$108_Y, Q = \is_S).
+Adding SRST signal on $procdff$288 ($dff) from module DECODE (D = $procmux$229_Y, Q = \is_L, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$320 ($sdff) from module DECODE (D = $reduce_or$rtl/decode_table_dc_generated.sv:717$111_Y, Q = \is_L).
+Adding SRST signal on $procdff$289 ($dff) from module DECODE (D = $procmux$224_Y, Q = \n248, rval = 3'000).
+Adding EN signal on $auto$ff.cc:266:slice$322 ($sdff) from module DECODE (D = { $reduce_or$rtl/decode_table_dc_generated.sv:719$123_Y $reduce_or$rtl/decode_table_dc_generated.sv:730$119_Y $reduce_or$rtl/decode_table_dc_generated.sv:741$115_Y }, Q = \n248).
+Adding SRST signal on $procdff$290 ($dff) from module DECODE (D = $procmux$219_Y, Q = \bin_writePC0_value, rval = 2'00).
+Adding EN signal on $auto$ff.cc:266:slice$324 ($sdff) from module DECODE (D = { $reduce_and$rtl/decode_table_dc_generated.sv:762$125_Y $reduce_and$rtl/decode_table_dc_generated.sv:762$124_Y }, Q = \bin_writePC0_value).
+Adding SRST signal on $procdff$291 ($dff) from module DECODE (D = $procmux$214_Y, Q = \bin_readMEM0_words, rval = 2'00).
+Adding EN signal on $auto$ff.cc:266:slice$326 ($sdff) from module DECODE (D = { $reduce_and$rtl/decode_table_dc_generated.sv:764$127_Y $reduce_and$rtl/decode_table_dc_generated.sv:765$126_Y }, Q = \bin_readMEM0_words).
+Adding SRST signal on $procdff$292 ($dff) from module DECODE (D = $procmux$209_Y, Q = \sel_writeMEM0_words, rval = 2'00).
+Adding EN signal on $auto$ff.cc:266:slice$328 ($sdff) from module DECODE (D = { $reduce_and$rtl/decode_table_dc_generated.sv:776$129_Y $reduce_and$rtl/decode_table_dc_generated.sv:786$128_Y }, Q = \sel_writeMEM0_words).
+Adding SRST signal on $procdff$293 ($dff) from module DECODE (D = $procmux$204_Y, Q = \bin_writeX0_value, rval = 3'000).
+Adding EN signal on $auto$ff.cc:266:slice$330 ($sdff) from module DECODE (D = { $reduce_or$rtl/decode_table_dc_generated.sv:797$152_Y $reduce_and$rtl/decode_table_dc_generated.sv:815$141_Y $reduce_or$rtl/decode_table_dc_generated.sv:816$140_Y }, Q = \bin_writeX0_value).
+Adding SRST signal on $procdff$294 ($dff) from module DECODE (D = $procmux$199_Y, Q = \sel_readMEM0_addr, rval = 5'00000).
+Adding EN signal on $auto$ff.cc:266:slice$332 ($sdff) from module DECODE (D = { $reduce_or$rtl/decode_table_dc_generated.sv:416$70_Y $reduce_or$rtl/decode_table_dc_generated.sv:430$63_Y $reduce_or$rtl/decode_table_dc_generated.sv:449$58_Y $reduce_or$rtl/decode_table_dc_generated.sv:488$48_Y $reduce_or$rtl/decode_table_dc_generated.sv:549$39_Y }, Q = \sel_readMEM0_addr).
+Adding SRST signal on $procdff$295 ($dff) from module DECODE (D = $procmux$194_Y, Q = \invalid_insn, rval = 1'0).
+Adding EN signal on $auto$ff.cc:266:slice$334 ($sdff) from module DECODE (D = $eq$rtl/decode_table_dc_generated.sv:836$167_Y, Q = \invalid_insn).
+Adding SRST signal on $procdff$296 ($dff) from module DECODE (D = $procmux$189_Y, Q = \readX0_result, rval = 0).
+Adding EN signal on $auto$ff.cc:266:slice$336 ($sdff) from module DECODE (D = $ternary$rtl/decode_table_dc_generated.sv:239$16_Y, Q = \readX0_result).
+Adding SRST signal on $procdff$297 ($dff) from module DECODE (D = $procmux$184_Y, Q = \readX1_result, rval = 0).
+Adding EN signal on $auto$ff.cc:266:slice$338 ($sdff) from module DECODE (D = $ternary$rtl/decode_table_dc_generated.sv:248$26_Y, Q = \readX1_result).
+Adding SRST signal on $procdff$298 ($dff) from module DECODE (D = $procmux$179_Y, Q = \readMEM1_addr, rval = 0).
+Adding EN signal on $auto$ff.cc:266:slice$340 ($sdff) from module DECODE (D = \io_read_readMEM1_addr_in_data, Q = \readMEM1_addr).
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$307 ($sdffe) from module DECODE.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$307 ($sdffe) from module DECODE.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$307 ($sdffe) from module DECODE.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$307 ($sdffe) from module DECODE.
+Setting constant 0-bit at position 4 on $auto$ff.cc:266:slice$307 ($sdffe) from module DECODE.
+Setting constant 0-bit at position 5 on $auto$ff.cc:266:slice$307 ($sdffe) from module DECODE.
+Setting constant 0-bit at position 6 on $auto$ff.cc:266:slice$307 ($sdffe) from module DECODE.
+Setting constant 0-bit at position 7 on $auto$ff.cc:266:slice$307 ($sdffe) from module DECODE.
+Setting constant 0-bit at position 8 on $auto$ff.cc:266:slice$307 ($sdffe) from module DECODE.
+Setting constant 0-bit at position 9 on $auto$ff.cc:266:slice$307 ($sdffe) from module DECODE.
+Setting constant 0-bit at position 10 on $auto$ff.cc:266:slice$307 ($sdffe) from module DECODE.
+Setting constant 0-bit at position 11 on $auto$ff.cc:266:slice$307 ($sdffe) from module DECODE.
 
 4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \DECODE..
-Removed 42 unused cells and 151 unused wires.
+Removed 42 unused cells and 202 unused wires.
 <suppressed ~43 debug messages>
 
 4.8. Executing OPT_EXPR pass (perform const folding).
@@ -405,7 +405,7 @@ Using extmapper simplemap for cells of type $reduce_and.
 Using template $paramod$constmap:6fcaf27e214947eeff9f1c47e683955439de86ee$paramod$f078c9a1c41d1b9c2636557fd2fc6ded1957fdb6\_90_shift_shiftx for cells of type $shiftx.
 Using extmapper simplemap for cells of type $logic_not.
 No more expansions possible.
-<suppressed ~850 debug messages>
+<suppressed ~842 debug messages>
 
 10. Executing OPT pass (performing simple optimizations).
 
@@ -415,8 +415,8 @@ Optimizing module DECODE.
 
 10.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\DECODE'.
-<suppressed ~2148 debug messages>
-Removed a total of 716 cells.
+<suppressed ~2097 debug messages>
+Removed a total of 699 cells.
 
 10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \DECODE..
@@ -436,8 +436,8 @@ Removed a total of 0 cells.
 
 10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \DECODE..
-Removed 187 unused cells and 125 unused wires.
-<suppressed ~188 debug messages>
+Removed 173 unused cells and 122 unused wires.
+<suppressed ~174 debug messages>
 
 10.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module DECODE.
@@ -503,14 +503,14 @@ Optimizing module DECODE.
 11.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
 <suppressed ~24 debug messages>
 Mapping DFF cells in module `\DECODE':
-  mapped 207 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_1 cells.
+  mapped 208 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_1 cells.
 
 12. Executing ABC pass (technology mapping using ABC).
 
 12.1. Extracting gate netlist of module `\DECODE' to `<abc-temp-dir>/input.blif'..
 
 12.1.1. Executed ABC.
-Extracted 990 gates and 1426 wires to a netlist network with 435 inputs and 211 outputs.
+Extracted 972 gates and 1410 wires to a netlist network with 437 inputs and 212 outputs.
 Running ABC script: <abc-temp-dir>/abc.script
 ABC: ABC command line: "source <abc-temp-dir>/abc.script".
 ABC: 
@@ -630,55 +630,49 @@ ABC: + &put
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 12.1.2. Re-integrating ABC results.
-ABC RESULTS:   sky130_fd_sc_hd__a2111o_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__a211oi_1 cells:       11
-ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:      110
-ABC RESULTS:   sky130_fd_sc_hd__a22oi_1 cells:        2
-ABC RESULTS:   sky130_fd_sc_hd__a2bb2oi_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a211o_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_1 cells:       12
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_0 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21o_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:       93
+ABC RESULTS:   sky130_fd_sc_hd__a22o_1 cells:        2
 ABC RESULTS:   sky130_fd_sc_hd__a311oi_1 cells:        4
-ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:        4
-ABC RESULTS:   sky130_fd_sc_hd__a32oi_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__a41oi_1 cells:        2
-ABC RESULTS:   sky130_fd_sc_hd__and2_0 cells:        2
-ABC RESULTS:   sky130_fd_sc_hd__and3_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__a32o_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a32oi_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__a41oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and3_1 cells:        1
 ABC RESULTS:   sky130_fd_sc_hd__and3b_1 cells:        2
-ABC RESULTS:   sky130_fd_sc_hd__and4_1 cells:        2
-ABC RESULTS:   sky130_fd_sc_hd__and4b_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:       71
-ABC RESULTS:   sky130_fd_sc_hd__lpflow_inputiso1p_1 cells:        6
-ABC RESULTS:   sky130_fd_sc_hd__lpflow_isobufsrc_1 cells:        4
-ABC RESULTS:   sky130_fd_sc_hd__mux2_1 cells:        2
-ABC RESULTS:   sky130_fd_sc_hd__mux2i_1 cells:       80
-ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:       54
-ABC RESULTS:   sky130_fd_sc_hd__nand2b_1 cells:        2
-ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:       14
-ABC RESULTS:   sky130_fd_sc_hd__nand3b_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:       13
-ABC RESULTS:   sky130_fd_sc_hd__nand4b_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__and4_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:       73
+ABC RESULTS:   sky130_fd_sc_hd__lpflow_inputiso1p_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__lpflow_isobufsrc_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__mux2i_1 cells:       84
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:       36
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:       22
+ABC RESULTS:   sky130_fd_sc_hd__nand3b_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__nand4b_1 cells:        1
 ABC RESULTS:   sky130_fd_sc_hd__nand4bb_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:      202
-ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:      100
-ABC RESULTS:   sky130_fd_sc_hd__nor3b_1 cells:        4
-ABC RESULTS:   sky130_fd_sc_hd__nor4_1 cells:       14
-ABC RESULTS:   sky130_fd_sc_hd__nor4b_1 cells:        3
-ABC RESULTS:   sky130_fd_sc_hd__nor4bb_1 cells:        2
-ABC RESULTS:   sky130_fd_sc_hd__o2111ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:      221
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:      106
+ABC RESULTS:   sky130_fd_sc_hd__nor4_1 cells:       12
+ABC RESULTS:   sky130_fd_sc_hd__nor4b_1 cells:        1
 ABC RESULTS:   sky130_fd_sc_hd__o211ai_1 cells:        3
-ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__o21ai_0 cells:       74
-ABC RESULTS:   sky130_fd_sc_hd__o21bai_1 cells:        2
-ABC RESULTS:   sky130_fd_sc_hd__o221ai_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:        2
-ABC RESULTS:   sky130_fd_sc_hd__o2bb2ai_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__o31a_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__o31ai_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__o32ai_1 cells:        1
-ABC RESULTS:   sky130_fd_sc_hd__or3_1 cells:        5
-ABC RESULTS:   sky130_fd_sc_hd__or4_1 cells:        7
-ABC RESULTS:   sky130_fd_sc_hd__or4b_1 cells:        1
-ABC RESULTS:        internal signals:      780
-ABC RESULTS:           input signals:      435
-ABC RESULTS:          output signals:      211
+ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_0 cells:       71
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o311ai_0 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o41ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__or3_1 cells:        9
+ABC RESULTS:   sky130_fd_sc_hd__or4_1 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__or4b_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:        1
+ABC RESULTS:        internal signals:      761
+ABC RESULTS:           input signals:      437
+ABC RESULTS:          output signals:      212
 Removing temp directory.
 Removing global temp directory.
 
@@ -689,65 +683,59 @@ Removing global temp directory.
         +----------Local Count, excluding submodules.
         |        +-Local Area, excluding submodules.
         |        | 
-     2017        - wires
-     5082        - wire bits
-       89        - public wires
-     1266        - public wire bits
+     2006        - wires
+     5180        - wire bits
+      100        - public wires
+     1399        - public wire bits
        42        - ports
       480        - port bits
-     1030 8.54E+03 cells
-        1   11.261   sky130_fd_sc_hd__a2111o_1
-       11   82.579   sky130_fd_sc_hd__a211oi_1
-      110  550.528   sky130_fd_sc_hd__a21oi_1
-        2   15.014   sky130_fd_sc_hd__a22oi_1
-        2   17.517   sky130_fd_sc_hd__a2bb2oi_1
+     1033  8570.72 cells
+        1    8.758   sky130_fd_sc_hd__a211o_1
+       12   90.086   sky130_fd_sc_hd__a211oi_1
+        1    7.507   sky130_fd_sc_hd__a21boi_0
+        1    7.507   sky130_fd_sc_hd__a21o_1
+       93  465.446   sky130_fd_sc_hd__a21oi_1
+        2   17.517   sky130_fd_sc_hd__a22o_1
         4   35.034   sky130_fd_sc_hd__a311oi_1
-        4   25.024   sky130_fd_sc_hd__a31oi_1
-        1    8.758   sky130_fd_sc_hd__a32oi_1
-        2   17.517   sky130_fd_sc_hd__a41oi_1
-        2   12.512   sky130_fd_sc_hd__and2_0
-        2   12.512   sky130_fd_sc_hd__and3_1
+       10    62.56   sky130_fd_sc_hd__a31oi_1
+        1    10.01   sky130_fd_sc_hd__a32o_1
+        7   61.309   sky130_fd_sc_hd__a32oi_1
+        1    8.758   sky130_fd_sc_hd__a41oi_1
+        1    6.256   sky130_fd_sc_hd__and3_1
         2   17.517   sky130_fd_sc_hd__and3b_1
-        2   17.517   sky130_fd_sc_hd__and4_1
-        1    10.01   sky130_fd_sc_hd__and4b_1
-       71  266.506   sky130_fd_sc_hd__clkinv_1
-      207 4.14E+03   sky130_fd_sc_hd__dfxtp_1
-        6   37.536   sky130_fd_sc_hd__lpflow_inputiso1p_1
-        4   25.024   sky130_fd_sc_hd__lpflow_isobufsrc_1
-        2   22.522   sky130_fd_sc_hd__mux2_1
-       80  800.768   sky130_fd_sc_hd__mux2i_1
-       54  202.694   sky130_fd_sc_hd__nand2_1
-        2   12.512   sky130_fd_sc_hd__nand2b_1
-       14   70.067   sky130_fd_sc_hd__nand3_1
-        1    7.507   sky130_fd_sc_hd__nand3b_1
-       13   81.328   sky130_fd_sc_hd__nand4_1
-        3   26.275   sky130_fd_sc_hd__nand4b_1
+        1    8.758   sky130_fd_sc_hd__and4_1
+       73  274.013   sky130_fd_sc_hd__clkinv_1
+      208 4.16E+03   sky130_fd_sc_hd__dfxtp_1
+        7   43.792   sky130_fd_sc_hd__lpflow_inputiso1p_1
+        1    6.256   sky130_fd_sc_hd__lpflow_isobufsrc_1
+       84  840.806   sky130_fd_sc_hd__mux2i_1
+       36   135.13   sky130_fd_sc_hd__nand2_1
+        4   25.024   sky130_fd_sc_hd__nand2b_1
+       22  110.106   sky130_fd_sc_hd__nand3_1
+        2   15.014   sky130_fd_sc_hd__nand3b_1
+       10    62.56   sky130_fd_sc_hd__nand4_1
+        1    8.758   sky130_fd_sc_hd__nand4b_1
         1   11.261   sky130_fd_sc_hd__nand4bb_1
-      202  758.227   sky130_fd_sc_hd__nor2_1
-      100   500.48   sky130_fd_sc_hd__nor3_1
-        4   30.029   sky130_fd_sc_hd__nor3b_1
-       14   87.584   sky130_fd_sc_hd__nor4_1
-        3   26.275   sky130_fd_sc_hd__nor4b_1
-        2   20.019   sky130_fd_sc_hd__nor4bb_1
-        1    8.758   sky130_fd_sc_hd__o2111ai_1
+      221  829.546   sky130_fd_sc_hd__nor2_1
+      106  530.509   sky130_fd_sc_hd__nor3_1
+       12   75.072   sky130_fd_sc_hd__nor4_1
+        1    8.758   sky130_fd_sc_hd__nor4b_1
         3   22.522   sky130_fd_sc_hd__o211ai_1
-        1    7.507   sky130_fd_sc_hd__o21a_1
-       74  370.355   sky130_fd_sc_hd__o21ai_0
-        2   15.014   sky130_fd_sc_hd__o21bai_1
-        1    8.758   sky130_fd_sc_hd__o221ai_1
-        2   12.512   sky130_fd_sc_hd__o22ai_1
-        1    8.758   sky130_fd_sc_hd__o2bb2ai_1
-        1    8.758   sky130_fd_sc_hd__o31a_1
-        1    7.507   sky130_fd_sc_hd__o31ai_1
-        1    8.758   sky130_fd_sc_hd__o32ai_1
-        5    31.28   sky130_fd_sc_hd__or3_1
-        7    52.55   sky130_fd_sc_hd__or4_1
-        1    10.01   sky130_fd_sc_hd__or4b_1
+        3   22.522   sky130_fd_sc_hd__o21a_1
+       71  355.341   sky130_fd_sc_hd__o21ai_0
+        3   22.522   sky130_fd_sc_hd__o21bai_1
+        1    6.256   sky130_fd_sc_hd__o22ai_1
+        1    8.758   sky130_fd_sc_hd__o311ai_0
+        2   17.517   sky130_fd_sc_hd__o41ai_1
+        9   56.304   sky130_fd_sc_hd__or3_1
+       11   82.579   sky130_fd_sc_hd__or4_1
+        2   20.019   sky130_fd_sc_hd__or4b_1
+        1    8.758   sky130_fd_sc_hd__xnor2_1
 
-   Chip area for module '\DECODE': 8536.937600
-     of which used for sequential elements: 4143.974400 (48.54%)
+   Chip area for module '\DECODE': 8570.720000
+     of which used for sequential elements: 4163.993600 (48.58%)
 
-Removed 0 unused cells and 1112 unused wires.
+Removed 0 unused cells and 1088 unused wires.
 
 14. Executing Verilog backend.
 
@@ -756,6 +744,6 @@ Removed 0 unused cells and 1112 unused wires.
 14.2. Executing DEMUXMAP pass.
 Dumping module `\DECODE'.
 
-End of script. Logfile hash: ae99d8d3e4, CPU: user 0.25s system 0.04s, MEM: 61.27 MB peak
+End of script. Logfile hash: f5dfc37df3, CPU: user 0.26s system 0.03s, MEM: 60.91 MB peak
 Yosys 0.58 (git sha1 157aabb5831cc77d08346001c4a085f188d7c736, clang++ 17.0.0 -fPIC -O3)
-Time spent: 50% 1x abc (0 sec), 8% 1x dfflibmap (0 sec), ...
+Time spent: 49% 1x abc (0 sec), 7% 1x dfflibmap (0 sec), ...
