@@ -1,0 +1,31 @@
+Startpoint: io_read_readMEM1_result_in_data[29] (input port clocked by core_clk)
+Endpoint: io_readX0_result_in_enable (output port clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   1.00    1.00 v input external delay
+   0.00    1.00 v io_read_readMEM1_result_in_data[29] (in)
+   0.63    1.63 v _0835_/X (sky130_fd_sc_hd__or4_1)
+   0.43    2.07 ^ _0839_/Y (sky130_fd_sc_hd__nor4_1)
+   0.12    2.18 v _0844_/Y (sky130_fd_sc_hd__a31oi_1)
+   0.29    2.47 ^ _0845_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.10    2.57 v _1349_/Y (sky130_fd_sc_hd__nor3_1)
+   0.27    2.84 ^ _1353_/Y (sky130_fd_sc_hd__a2111oi_0)
+   0.00    2.84 ^ io_readX0_result_in_enable (out)
+           2.84   data arrival time
+
+   5.00    5.00   clock core_clk (rise edge)
+   0.00    5.00   clock network delay (ideal)
+   0.00    5.00   clock reconvergence pessimism
+  -1.00    4.00   output external delay
+           4.00   data required time
+---------------------------------------------------------
+           4.00   data required time
+          -2.84   data arrival time
+---------------------------------------------------------
+           1.16   slack (MET)
+
